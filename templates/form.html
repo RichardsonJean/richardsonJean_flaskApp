@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Intake Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Patient Intake Form</h1>
+
+    {% if errors %}
+      <ul style="color: red;">
+        {% for error in errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <form method="POST" action="{{ url_for('submit') }}">
+        <label>First Name:
+            <input type="text" name="first_name" required pattern="[A-Za-z\s'\-]+"
+                   value="{{ form_data.first_name if form_data and form_data.first_name }}">
+        </label><br>
+
+        <label>Last Name:
+            <input type="text" name="last_name" required pattern="[A-Za-z\s'\-]+" 
+                   value="{{ form_data.last_name if form_data and form_data.last_name }}">
+        </label><br>
+
+        <label>Date of Birth:
+            <input type="date" name="dob" required
+                   value="{{ form_data.dob if form_data and form_data.dob }}">
+        </label><br>
+
+        <label>Therapist Name:
+            <input type="text" name="therapist" required pattern="[A-Za-z\s'\-]+" 
+                   value="{{ form_data.therapist if form_data and form_data.therapist }}">
+        </label><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    margin: 50px;
+  
+    
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+}
+
+input {
+    padding: 5px;
+    margin-left: 10px;
+}
